@@ -1,7 +1,4 @@
 {
-  "version": 2,
-  "framework": null,
-  "outputDirectory": "public",
   "functions": {
     "api/index.php": {
       "runtime": "vercel-php@0.6.0"
@@ -9,15 +6,30 @@
   },
   "routes": [
     {
-      "src": "/(css|js|favicon|build)/(.*)",
-      "dest": "/public/$1/$2"
+      "src": "/favicon.ico",
+      "dest": "/favicon.ico"
+    },
+    {
+      "src": "/assets/(.*)",
+      "dest": "/public/assets/$1"
+    },
+    {
+      "src": "/build/(.*)",
+      "dest": "/public/build/$1"
+    },
+    {
+      "src": "/css/(.*)",
+      "dest": "/public/css/$1"
+    },
+    {
+      "src": "/js/(.*)",
+      "dest": "/public/js/$1"
     },
     {
       "src": "/(.*)",
       "dest": "/api/index.php"
     }
   ],
-  "buildCommand": "composer install --no-dev --optimize-autoloader && php artisan config:cache",
   "env": {
     "APP_ENV": "production",
     "APP_DEBUG": "false",

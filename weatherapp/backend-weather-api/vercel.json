@@ -1,6 +1,7 @@
 {
   "version": 2,
   "framework": null,
+  "outputDirectory": "public",
   "functions": {
     "api/index.php": {
       "runtime": "vercel-php@0.6.0"
@@ -16,6 +17,7 @@
       "dest": "/api/index.php"
     }
   ],
+  "buildCommand": "composer install --no-dev --optimize-autoloader && php artisan config:cache",
   "env": {
     "APP_ENV": "production",
     "APP_DEBUG": "false",
